@@ -133,4 +133,16 @@
         </div>
     </div>
 </div>
+<link href="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.snow.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/quill@1.3.6/dist/quill.min.js"></script>
+<script>
+    var quill = new Quill('#editor-container', {
+        theme: 'snow'
+    });
+
+    // Ensure details input is updated before form submission
+    document.querySelector('form').onsubmit = function() {
+        document.querySelector('#description').value = quill.root.innerHTML;
+    };
+</script>
 @endsection

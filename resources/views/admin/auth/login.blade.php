@@ -33,11 +33,12 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="{{asset('admin')}}/css/adminlte.css" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('front') }}/assets/22.png">
   </head>
   <body class="login-page bg-body-secondary">
     <div class="login-box">
       <div class="login-logo">
-        <a href="#"><img src="{{asset('admin/assets')}}/img/logi_kiswa.webp" style="width:100px" /></a>
+        <a href="#"><img src="{{ asset('front') }}/assets/22.png" style="width:100px" /></a>
       </div>
       <div class="card">
         <div class="card-body login-card-body">

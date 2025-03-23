@@ -101,11 +101,11 @@
         <div class="sidebar-brand">
           <a href="./index.html" class="brand-link">
             <img
-              src="{{asset('admin')}}/assets/img/AdminLTELogo.png"
+              src="{{ asset('front') }}/assets/last_in_footer.jpg"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />
-            <span class="brand-text fw-light">AdminLTE 4</span>
+            <span class="brand-text fw-light"></span>
           </a>
         </div>
         <div class="sidebar-wrapper">

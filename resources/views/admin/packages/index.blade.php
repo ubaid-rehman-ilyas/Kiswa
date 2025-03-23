@@ -1,4 +1,21 @@
 @extends('admin.layouts.master')
+<style>
+.pagination {
+    gap: 8px; /* Buttons ke darmiyan gap */
+}
+
+.pagination .page-item {
+    margin: 0 2px; /* Har button ke darmiyan space */
+}
+
+.pagination .page-link {
+    padding: 8px 8px; /* Button size theek karne ke liye */
+    border-radius: 6px; /* Thoda smooth dikhane ke liye */
+    min-width: 40px; /* Adjust as needed */
+    text-align: center;
+
+}
+</style>
 @section('content')
 <div class="card">
     <div class="card-header">
@@ -48,7 +65,7 @@
         </table>
 
         {{-- Custom Pagination --}}
-        <div class="d-flex justify-content-center mt-3">
+        <div class="d-flex justify-content-center mt-4">
             {{ $packages->links() }}
         </div>
     </div>

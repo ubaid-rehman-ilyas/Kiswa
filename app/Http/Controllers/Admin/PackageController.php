@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Storage;
 
 class PackageController extends Controller {
     public function index() {
-        $packages = Package::with('category', 'images')->paginate(10);
+        $packages = Package::with('category', 'images')->orderBy('id','desc')->paginate(10);
         return view('admin.packages.index', compact('packages'));
     }
     
@@ -41,10 +41,16 @@ class PackageController extends Controller {
     
             if ($request->hasFile('images')) {
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('packages', 'public');
+                    // Generate unique filename for each image
+                    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    
+                    // Move image to public folder
+                    $image->move(public_path('packages'), $imageName);
+                    
+                    // Save image name in the database
                     PackageImage::create([
                         'package_id' => $package->id,
-                        'image_path' => $path
+                        'image_path' => $imageName // Only save the image name
                     ]);
                 }
             }
@@ -57,7 +63,7 @@ class PackageController extends Controller {
         } catch (\Exception $e) {
             return redirect()->back()->with([
                 'msg' => 2,
-                'alert_data' => 'Validation Error' . $e->getMessage()
+                'alert_data' => $e->getMessage()
             ]);
         }
     }
@@ -74,6 +80,7 @@ class PackageController extends Controller {
     }
     
     public function update(Request $request, $id) {
+        // return $request;
         try {
             $package = Package::findOrFail($id);
     
@@ -96,16 +103,23 @@ class PackageController extends Controller {
             ]));
     
             if ($request->hasFile('images')) {
+                // Delete old images from storage and database
                 foreach ($package->images as $image) {
-                    Storage::delete('public/' . $image->image_path);
+                    Storage::delete('public/packages/' . $image->image_path);
                     $image->delete();
                 }
-    
+            
                 foreach ($request->file('images') as $image) {
-                    $path = $image->store('packages', 'public');
+                    // Generate unique filename for each image
+                    $imageName = time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+                    
+                    // Move image to public folder
+                    $image->move(public_path('packages'), $imageName);
+                    
+                    // Save image name in the database
                     PackageImage::create([
                         'package_id' => $package->id,
-                        'image_path' => $path
+                        'image_path' => $imageName // Only save the image name
                     ]);
                 }
             }
@@ -118,7 +132,7 @@ class PackageController extends Controller {
         } catch (\Exception $e) {
             return redirect()->back()->with([
                 'msg' => 2,
-                'alert_data' => 'Something went wrong: ' . $e->getMessage()
+                'alert_data' => $e->getMessage()
             ]);
         }
     }
