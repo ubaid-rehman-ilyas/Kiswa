@@ -352,7 +352,7 @@ p.sec3_p_txt {
 .owl-controls .owl-buttons .owl-next:after {
   content: '';
   display: block;
-  background-image: url(assets/right.svg);
+  background-image: url("/front/assets/right.svg");
   font-size: 15px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   width: 50px;
@@ -362,7 +362,7 @@ p.sec3_p_txt {
 .owl-controls .owl-buttons .owl-prev:after {
   content: '';
   display: block;
-  background-image: url(assets/left.svg);
+  background-image: url("/front/assets/left.svg");
   font-size: 15px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   width: 50px;
@@ -1070,7 +1070,7 @@ section.packages_sec_2 .packages_sec_2_form input {
 #news-slider_r_2 .owl-controls .owl-buttons .owl-prev:after {
   content: '';
   display: block;
-  background: url(assets/pkg-aero-left1.png) no-repeat center center;
+  background: url("/front/assets/pkg-aero-left1.png") no-repeat center center;
   font-size: 15px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   width: 50px;
@@ -1083,7 +1083,7 @@ section.packages_sec_2 .packages_sec_2_form input {
 #news-slider_r_2 .owl-controls .owl-buttons .owl-next:after {
   content: '';
   display: block;
-  background: url(assets/pkg-aero-right1.png) no-repeat center center;
+  background: url("/front/assets/pkg-aero-right1.png") no-repeat center center;
   font-size: 15px;
   font-family: Georgia, 'Times New Roman', Times, serif;
   width: 50px;

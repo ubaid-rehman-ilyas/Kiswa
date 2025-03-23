@@ -108,10 +108,14 @@
                             </div>
                         @endif
                         @foreach($package->images as $image)
-                            <div class="col-md-2 text-center">
-                                <img src="{{ asset('storage/'.$image->path) }}" class="img-thumbnail mb-2" width="100">
-                                <br>
-                                <input type="checkbox" name="remove_images[]" value="{{ $image->id }}"> Remove
+                            <div class="col-md-2 text-center position-relative">
+                                <img src="{{ asset('packages/' . $image->image_path) }}" class="img-thumbnail mb-2" width="100">
+                                
+                                <!-- Cross Button -->
+                                <button type="button" class="btn btn-danger btn-sm position-absolute top-0 end-0 delete-image" 
+                                        data-id="{{ $image->id }}" data-path="{{ $image->path }}">
+                                    ×
+                                </button>
                             </div>
                         @endforeach
                     </div>
@@ -144,5 +148,35 @@
     document.querySelector('form').onsubmit = function() {
         document.querySelector('#description').value = quill.root.innerHTML;
     };
+</script>
+<script>
+    $(document).ready(function() {
+        $(".delete-image").click(function() {
+            let imageId = $(this).data("id");
+            let button = $(this);
+            let token = "{{ csrf_token() }}";
+            if (confirm("Are you sure you want to delete this image?")) {
+                $.ajax({
+                    url: "/admin/delete-image/" + imageId,
+                    type: "DELETE",
+                    data: {
+                        _token: token
+                    },
+                    success: function(response) {
+                        if (response.success) {
+                            button.parent().remove();
+                            alert("Image deleted successfully!");
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function(xhr) {
+                        console.error("Error:", xhr);
+                        alert("Something went wrong!");
+                    }
+                });
+            }
+        });
+    });
 </script>
 @endsection

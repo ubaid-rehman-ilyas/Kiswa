@@ -136,13 +136,31 @@ class PackageController extends Controller {
             ]);
         }
     }
+    public function deleteImage($id, Request $request)
+    {
+        $image = PackageImage::findOrFail($id);
     
+        // Image file delete karein
+        $imagePath = public_path('packages/' . $image->image_path);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
+    
+        // Database se delete karein
+        $image->delete();
+    
+        return response()->json(['success' => true]);
+    }    
     public function destroy($id) {
         try {
-            $package = Package::findOrFail($id);
+            $package = Package::with('images')->findOrFail($id);
             foreach ($package->images as $image) {
-                Storage::delete('public/' . $image->image_path);
-                $image->delete();
+                $imagePath = public_path('packages/' . $image->image_path);
+                if (file_exists($imagePath)) {
+                    unlink($imagePath);
+                }                
+                // Storage::delete('public/packages' . $image->image_path);
+                // $image->delete();
             }
             $package->delete();
     

@@ -26,6 +26,7 @@ Route::prefix('admin')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         Route::get('dashboard', [AdminDashboard::class, 'index'])->name('admin.dashboard');
         Route::resource('packages', PackageController::class);
+        Route::delete('/delete-image/{id}', [PackageController::class, 'deleteImage']);
     });
 });
 
