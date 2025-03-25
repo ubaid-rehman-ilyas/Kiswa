@@ -16,8 +16,8 @@
     <div class="row footer_menu">
       <div class="col-md-3">
         <ul>
-          <li><a href="https://quranitalimaat.com/about.php">About</a></li>
-          <li><a href="https://quranitalimaat.com/contact.php">Contact</a></li>
+          <li><a href="{{route('front.about')}}">About</a></li>
+          <li><a href="{{route('front.contact')}}">Contact</a></li>
           <li><a href="javacsript:;">Reviews</a></li>
           <li><a href="javacsript:;">Support</a></li>
         </ul>

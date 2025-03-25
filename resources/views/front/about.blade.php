@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en"> <head> <meta charset="UTF-8"> 
-<meta name="robots" content="nofollow, noindex">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <title>Kiswa</title>
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous"><link rel="stylesheet" href="style.css">
-</head> <body>
-<?php include('header.php'); ?>
-
+@extends('front.layouts.master')
+@section('content')
 
     <section class="about_sec_1">
         <div class="container-fluid">
@@ -103,7 +97,7 @@
         <div class="container-fluid">
             <div class="row d-flex flex-row-reverse">
                 <div class="col-md-3 col-sm-4 mb-2"> 
-                    <div class="img-box"><img src="assets/about-3.png" alt="Ahana Ali" class="img-fluid"> </div>
+                    <div class="img-box"><img src="{{asset('front')}}/assets/about-3.png" alt="Ahana Ali" class="img-fluid"> </div>
                         <div class="project_co">
                         <p class="about_pc">Project Coordinator</p>
                         <h4>Zameer Tori</h4>
@@ -113,7 +107,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-4 mb-2"> 
-                    <div class="img-box"><img src="assets/about-2.png" alt="Ahana Ali" class="img-fluid"> </div>
+                    <div class="img-box"><img src="{{asset('front')}}/assets/about-2.png" alt="Ahana Ali" class="img-fluid"> </div>
                     <div class="project_co">
                         <p class="about_pc">Project Coordinator</p>
                         <h4>Benson Olwa</h4>
@@ -123,7 +117,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-4 mb-2">
-                    <div class="img-box"><img src="assets/about-1.png" alt="Ahana Ali" class="img-fluid"> </div>
+                    <div class="img-box"><img src="{{asset('front')}}/assets/about-1.png" alt="Ahana Ali" class="img-fluid"> </div>
                     <div class="project_co">
                         <p class="about_pc">Project Coordinator</p>
                         <h4>Ahana Ali</h4>
@@ -135,12 +129,5 @@
             </div>
         </div>
     </section>
-    
-    
-<?php include('footer.php'); ?>
+@endsection
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>    
-
-
-</body>
-</html>

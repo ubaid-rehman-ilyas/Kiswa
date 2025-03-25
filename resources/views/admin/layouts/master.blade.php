@@ -150,6 +150,23 @@
                   </li>
                 </ul>
               </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-person-lines-fill"></i>
+                  <p>
+                    Enquiries
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('admin.contact.index')}}" class="nav-link active">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Leads</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
             </ul>
           </nav>
         </div>
