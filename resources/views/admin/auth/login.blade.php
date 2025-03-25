@@ -34,9 +34,17 @@
     />
     <link rel="stylesheet" href="{{asset('admin')}}/css/adminlte.css" />
     <link rel="icon" type="image/x-icon" href="{{ asset('front') }}/assets/22.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
   </head>
   <body class="login-page bg-body-secondary">
-    <div class="login-box">
+    @if(session('msg') == 1)
+      <script>toastr.success('{{ session("alert_data") }}');</script>
+    @elseif(session('msg') == 2)
+      <script>toastr.error('{{ session("alert_data") }}');</script>
+    @endif    
+  <div class="login-box">
       <div class="login-logo">
         <a href="#"><img src="{{ asset('front') }}/assets/22.png" style="width:100px" /></a>
       </div>

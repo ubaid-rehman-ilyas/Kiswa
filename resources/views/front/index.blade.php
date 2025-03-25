@@ -106,7 +106,7 @@
                               @php
                                   $firstImage = $package->images->first();
                               @endphp
-                              <img src="{{ $firstImage ? asset('packages/' . $firstImage->image_path) : asset('front/assets/default.png') }}" alt="">
+                              <img src="{{ $firstImage ? asset('packages/' . $firstImage->image_path) : asset('front/assets/default.jpg') }}" alt="">
                           </div>
                           <div class="post-content">
                               <h3 class="post-title">

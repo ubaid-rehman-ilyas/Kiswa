@@ -18,17 +18,26 @@ class AuthController extends Controller {
     public function login(Request $request)
     {
         $credentials = $request->only('email', 'password');
-    
+
         if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('admin.dashboard'); // Redirect to dashboard after login
+            return redirect()->route('admin.dashboard')->with([
+                'msg' => 1,
+                'alert_data' => 'Welcome'
+            ]);
         }
-    
-        return back()->withErrors(['email' => 'Invalid credentials']);
+
+        return back()->with([
+            'msg' => 2,
+            'alert_data' => 'Invalid Credentials'
+        ]);
     }
     
     public function logout()
     {
         Auth::guard('admin')->logout();
-        return redirect()->route('admin.login'); // Redirect to login after logout
+        return redirect()->route('admin.login')->with([
+            'msg' => 1,
+            'alert_data' => 'Logged out successfully!'
+        ]); // Redirect to login after logout
     }
 }
