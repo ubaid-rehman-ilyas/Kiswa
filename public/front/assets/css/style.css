@@ -507,7 +507,7 @@ div.hrline hr::after {
   overflow: hidden; /* Prevent any overflow */
   transition: opacity 0.5s ease; /* Smooth fade-in */
 
-  background-image: url(assets/repeat-green.png);
+  background-image: url('/front/assets/repeat-green.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -538,12 +538,12 @@ div.hrline hr::after {
 
 /* Hover state: Apply zoom-in animation and fade-in effect */
 .bg_parallax:hover {
-  background-image: url('assets/bg-image.jpg');
+  background-image: url('/front/assets/bg-image.jpg');
   opacity: 1;
   animation: zoomIn 0.8s ease-out forwards; /* Apply zoom-in animation */
 }
 .bg_parallax {
-  background-image: url(assets/bg-image.jpg);
+  background-image: url('/front/assets/bg-image.jpg');
   background-color: var(--primary_green);
   animation: zoomOut 0.8s ease-out forwards;
   background-clip: text;
@@ -644,7 +644,7 @@ div.hrline hr::after {
   color: var(--primary_green);
 }
 .ques_and_cont .qac_us {
-  background: url(assets/contact-btn-bg.png) no-repeat;
+  background: url("/front/assets/contact-btn-bg.png") no-repeat;
   padding: 20px 50px;
 }
 
@@ -692,7 +692,7 @@ div.hrline hr::after {
   right: 25%;
   top: 23%;
   z-index: 1;
-  background-image: url(assets/23.png);
+  background-image: url("/front/assets/23.png");
   background-size: cover;
   background-position: center;
   opacity: 1;
@@ -792,7 +792,7 @@ div.hrline hr::after {
     color: #000 !important;
 }
  .about_sec_1{
-        background: url(assets/about-banner.png) no-repeat center center;
+        background: url('/front/assets/about-banner.png') no-repeat center center;
         background-size: cover;
     }
     .about_sec_1 .width_margin_center{
@@ -907,7 +907,7 @@ div.hrline hr::after {
         left: 0;
     }
     .project_co div.pattern {
-        background: url(assets/about-pattern.png) repeat center center;
+        background: url('/front/assets/about-pattern.png') repeat center center;
         width: 100%;
         height: 40px;
     }
@@ -1528,7 +1528,7 @@ section.pro_det_sec_1 .product_detail_box{
         padding-top: 0px;
     }
     .ques_and_cont .qac_us {
-        background: url(assets/contact-btn-bg.png) no-repeat center top;
+        background: url("/front/assets/contact-btn-bg.png") no-repeat center top;
         padding: 8px 17px;
         background-size: contain;
     }

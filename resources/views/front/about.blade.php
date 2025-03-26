@@ -6,8 +6,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="width_margin_center">
-                       <h1 class="about_main_heading">A Journey <br>of Passion and<br> Dedication</h1>
-                       <p class="about_main_para">kiswatravels was established in 2020 with the aim of broadcasting and simplifying the sometimes complex Hajj.</p>
+                       <h1 class="about_main_heading" id="banner_heading">{{$record->banner_heading??''}}</h1>
+                       <p class="about_main_para">{{$record->banner_text}}</p>
                     </div>
                 </div>
             </div>
@@ -18,11 +18,10 @@
     <section class="about_sec_2">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3"> <p class="about_word">ABOUT</p> </div>
-                <div class="col-md-3"> <h2 class="o_story">Our Story,<br>Our Journey</h2> </div>
+                <div class="col-md-3"> <p class="about_word">{{$record->heading}}</p> </div>
+                <div class="col-md-3"> <h2 class="o_story" id="sub_heading">{{$record->sub_heading}}</h2> </div>
                 <div class="col-md-5 offset-md-1 about_sec_2_para_txt"> 
-                <p>Simplifying the sometimes complex Hajj and Umrah industry. Our Clever Technology enables us to compare a wide network of tour operators, airports and hotels to build a large number of Hajj and Umrah Packages to suit your needs. As a travel company with over 20 years of </p>
-                <p> Simplifying the sometimes complex Hajj and Umrah industry. Our Clever Technology enables us to compare a wide network of tour operators, airports and hotels to build a large number. </p>
+                <p>{{$record->text}}</p>
                 </div>
             </div>
         </div>
@@ -32,7 +31,7 @@
     <section class="home_sec_6">
   <div class="container-fluid">
     <div class="row manage_padding picwillnotdisplay">
-      <div class="col-md-12"> <h3 class="ex_mu_pkg">Why Customers <br> Prefer kaswatravel?</h3> </div>
+      <div class="col-md-12"> <h3 class="ex_mu_pkg" id="heading_two">{{$record->heading_two}}</h3> </div>
  
       <div class="ziarat_txt_year zty1">
           <div class="ziarat_txt_left">
@@ -83,11 +82,10 @@
     <section class="about_sec_2">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-3"> <p class="about_word">TEAM</p> </div>
-                <div class="col-md-3"> <h2 class="o_story">Experts Team in Hajj and Umrah</h2> </div>
+                <div class="col-md-3"> <p class="about_word">{{$record->heading}}</p> </div>
+                <div class="col-md-3"> <h2 class="o_story">{{$record->sub_heading_two}}</h2> </div>
                 <div class="col-md-5 offset-md-1 about_sec_2_para_txt"> 
-                <p>Simplifying the sometimes complex Hajj and Umrah industry. Our Clever Technology enables us to compare a wide network of tour operators, airports and hotels to build a large number of Hajj and Umrah Packages to suit your needs. As a travel company with over 20 years of </p>
-                <p> Simplifying the sometimes complex Hajj and Umrah industry. Our Clever Technology enables us to compare a wide network of tour operators, airports and hotels to build a large number. </p>
+                <p>{{$record->text_two}}</p>
                 </div>
             </div>
         </div>
@@ -129,5 +127,45 @@
             </div>
         </div>
     </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraph = document.getElementById("banner_heading");
+    let words = paragraph.innerHTML.split(" ");
+
+    let breakAfter = 2; // Kitne words ke baad break karna hai
+    if (words.length > breakAfter) {
+        words[breakAfter] += "<br>"; // Break insert karo
+    }
+
+    paragraph.innerHTML = words.join(" ");
+});    
+</script>    
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraph = document.getElementById("sub_heading");
+    let words = paragraph.innerHTML.split(" ");
+
+    let breakAfter = 1; // Kitne words ke baad break karna hai
+    if (words.length > breakAfter) {
+        words[breakAfter] += "<br>"; // Break insert karo
+    }
+
+    paragraph.innerHTML = words.join(" ");
+});    
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    let paragraph = document.getElementById("heading_two");
+    let words = paragraph.innerHTML.split(" ");
+
+    let breakAfter = 1; // Kitne words ke baad break karna hai
+    if (words.length > breakAfter) {
+        words[breakAfter] += "<br>"; // Break insert karo
+    }
+
+    paragraph.innerHTML = words.join(" ");
+});    
+</script>
 @endsection
 

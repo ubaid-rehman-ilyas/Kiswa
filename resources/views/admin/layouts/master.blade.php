@@ -135,6 +135,29 @@
               </li>
               <li class="nav-item">
                 <a href="#" class="nav-link">
+                  <i class="nav-icon bi bi-body-text"></i>
+                  <p>
+                    Content
+                    <i class="nav-arrow bi bi-chevron-right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('admin.contactpage.edit')}}" class="nav-link active">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>Contact Page</p>
+                    </a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="{{route('admin.about.edit')}}" class="nav-link active">
+                      <i class="nav-icon bi bi-circle"></i>
+                      <p>About Us Page</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="nav-icon bi bi-cart"></i>
                   <p>
                     Inventory

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\ContactPage;
 use App\Models\Contacts;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,8 @@ class ContactController extends Controller
 {
     public function index()
     {
-        return view('front.contact');
+        $record = ContactPage::first();
+        return view('front.contact', compact('record'));
     }
     public function contact_us(Request $request)
     {

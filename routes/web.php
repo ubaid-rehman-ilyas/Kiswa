@@ -1,10 +1,14 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController as AdminAuth;
 use App\Http\Controllers\Admin\ContactController as AdminContactController;
+use App\Http\Controllers\Admin\ContactPage;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboard;
 use App\Http\Controllers\Admin\PackageController;
+
+
 use App\Http\Controllers\Front\AboutController;
 use App\Http\Controllers\Front\AuthController as UserAuth;
 use App\Http\Controllers\Front\ContactController;
@@ -29,6 +33,13 @@ Route::middleware(['admin.auth'])->prefix('admin')->group(function () {
     
     Route::delete('/delete-lead/{id}', [AdminContactController::class, 'deleteLeads'])->name('admin.contact.destroy'); // Fixed {id}
     Route::get('leads', [AdminContactController::class, 'index'])->name('admin.contact.index');
+
+    Route::get('contact-page/edit', [ContactPage::class, 'edit'])->name('admin.contactpage.edit');
+    Route::post('contact-page/update', [ContactPage::class, 'update'])->name('admin.contactpage.update');
+
+    Route::get('about-us/edit', [AboutUsController::class, 'edit'])->name('admin.about.edit');
+    Route::post('about-us/update', [AboutUsController::class, 'update'])->name('admin.about.update');
+
 });
 
 // User Routes
